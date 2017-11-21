@@ -2,7 +2,8 @@
  * CS300: Frupal Project
  * Team G
  * Written by: Alexander Mason
- * File: Map_Display.c
+ * File: MapDisplay.c
+ * Generates an html web page using data from the map save file.
  */
 
 #include "Map_Display.h"
