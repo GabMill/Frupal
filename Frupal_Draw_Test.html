@@ -66,11 +66,27 @@ function keyEntry(event){
     xhttp.send();
 
     document.getElementById("game_window").innerHTML = xhttp.responseText;
-    
+
     xhttp.open("GET", "playerinven.cgi", false);
     xhttp.send();
 
     document.getElementById("inventory").innerHTML = xhttp.responseText;
+}
+function toggleInventory()
+{
+	getInventory();
+	var inv = document.getElementById("inventory");
+	var invTogg = document.getElementById("invToggle");
+	if(inv.style.visibility == "hidden")
+	{
+	inv.style.visibility = "visible";
+	invTogg.value = "Hide inventory";
+	}
+	else
+	{
+	inv.style.visibility = "hidden";
+	invTogg.value = "Show inventory";
+	}
 }
 
 </script>
@@ -81,10 +97,10 @@ function keyEntry(event){
 <body style="background-color:moccasin">
     <div id="frupal_ui">
         <div>
-        
             <div class="window" id="legend"></div>
             <div class="window" id="game_window"></div>
             <div class="window" id="inventory"></div>
+            <input type="button" value="Hide inventory" id="invToggle" onclick="toggleInventory()">
                 <br>
                 <br>Type in the direction you want to take in the text box!<br>
                 <br>w = North  |  s = South  |  a = West  |  d = East<br>
