@@ -1,4 +1,4 @@
-#include "map.h"
+#include "Map.h"
 
 //creates a cell, constructor essentially, but because C doesn't have constructors, i need to define it outside of the struct
 struct cell makeCell(int x, int y, int visibility, int land, const char* inItem) {
