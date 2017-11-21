@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <cgi.h>
-#include "diamond_finder.h"
+#include "DiamondFinder.h"
 
 //This code is to display the alert for finding the royal diamonds.
 //needs to be added to the movement.c file to run properly
