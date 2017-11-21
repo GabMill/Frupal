@@ -49,7 +49,8 @@ div.stats
 
 <script>
 
-function keyEntry(event){
+function keyEntry(event)
+{
     var x = event.keyCode || event.which;
     var y = String.fromCharCode(x);
 
@@ -74,18 +75,17 @@ function keyEntry(event){
 }
 function toggleInventory()
 {
-	getInventory();
-	var inv = document.getElementById("inventory");
-	var invTogg = document.getElementById("invToggle");
-	if(inv.style.visibility == "hidden")
-	{
-	inv.style.visibility = "visible";
-	invTogg.value = "Hide inventory";
-	}
+    var inv = document.getElementById("inventory");
+    var invTogg = document.getElementById("invToggle");
+    if(inv.style.visibility == "hidden")
+    {
+        inv.style.visibility = "visible";
+        invTogg.value = "Hide inventory";
+    }
 	else
 	{
-	inv.style.visibility = "hidden";
-	invTogg.value = "Show inventory";
+	    inv.style.visibility = "hidden";
+	    invTogg.value = "Show inventory";
 	}
 }
 
