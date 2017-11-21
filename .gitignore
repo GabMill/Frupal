@@ -1,3 +1,4 @@
 #ignore compiled c code
 *.out
 *.o
+*.cgi
