@@ -1,0 +1,19 @@
+<html>
+
+	<script>
+		//Call this to check if you are on the diamond from the 
+		function gotDiamond()
+		{
+			var xhttp = new XMLHttpRequest();
+			URL = "diamond.cgi"; //change this to movement.cgi after change
+			xhttp.open("GET",URL,false);
+			xhttp.send();
+			//only make an alert if the text exists
+			if(xhttp.responseText)
+			{
+				alert(xhttp.responseText);
+			}
+		}
+	</script>
+
+</html>

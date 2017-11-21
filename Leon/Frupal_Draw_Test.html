@@ -1,0 +1,100 @@
+<html>
+
+<style>
+
+div.frupal_ui
+    {
+        width:1400;
+        height:720px;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+    }
+
+    .window
+    {
+        background-color:#ffe6e6;
+    }
+
+div.game_window
+    {
+        width:720px;
+        height:520px;
+        margin:auto;
+    }
+
+div.inventory
+    {
+        margin-top:0;
+        width:300px;
+        height:520px;
+    }
+
+div.legend
+    {
+        margin-top:0;
+        width:300px;
+        height:520px;
+    }
+
+div.stats
+    {
+        width:1337px;
+        height:400px;
+    }
+</style>
+
+<script>
+
+function keyEntry(event){
+    var x = event.keyCode || event.which;
+    var y = String.fromCharCode(x);
+
+    arguments = "dir="+y;
+    var xhttp = new XMLHttpRequest();
+    URL = "mover.cgi?"+arguments;
+
+    xhttp.open("GET",URL,false);
+    xhttp.send();
+
+    document.getElementById("stats").innerHTML = xhttp.responseText;
+
+    xhttp.open("GET", "Display.cgi", false);
+    xhttp.send();
+
+    document.getElementById("game_window").innerHTML = xhttp.responseText;
+    
+    xhttp.open("GET", "playerinven.cgi", false);
+    xhttp.send();
+
+    document.getElementById("inventory").innerHTML = xhttp.responseText;
+}
+
+</script>
+
+<head>
+</head>
+
+<body style="background-color:moccasin">
+    <div id="frupal_ui">
+        <div>
+        
+            <div class="window" id="legend"></div>
+            <div class="window" id="game_window"></div>
+            <div class="window" id="inventory"></div>
+                <br>
+                <br>Type in the direction you want to take in the text box!<br>
+                <br>w = North  |  s = South  |  a = West  |  d = East<br>
+
+                <br>
+                <input type="text" size="40" onkeypress="keyEntry(event)">
+                <br><br>
+            <div class="window" id="stats"></div>
+        </div>
+    </div>
+</body>
+
+</html>

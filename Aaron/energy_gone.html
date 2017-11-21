@@ -1,0 +1,19 @@
+<html>
+	<script>
+
+	function energy_out()
+	{
+		var xhttp = new XMLHttpRequest();
+		URL = "energy_gone.cgi";
+		xhttp.open("GET", URL, false);
+		xhttp.send();
+	
+		if(xhttp.responseText)
+		{
+			alert(xhttp.responseText);
+		}
+	}
+	
+	</script>
+</html>
+

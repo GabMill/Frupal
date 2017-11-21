@@ -1,0 +1,47 @@
+<html>
+
+<script>
+
+function getInventory()
+{
+	var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200)
+                {
+                document.getElementById("inventoryView").innerHTML =
+                this.responseText;
+                }
+        };
+        xhttp.open("GET", "test.cgi", false);
+        xhttp.send();
+}
+
+function toggleInventory()
+{ 
+	getInventory();
+	var inv = document.getElementById("inventoryView");
+	var invTogg = document.getElementById("invToggle");
+	if(inv.style.visibility == "hidden")
+	{
+	inv.style.visibility = "visible";
+	invTogg.value = "Hide inventory";
+	}
+	else
+	{
+	inv.style.visibility = "hidden";
+	invTogg.value = "Show inventory";
+	}	
+}
+
+</script>
+	
+	<form>
+	
+		<input type="button" value="Show inventory" id="invToggle" onclick="toggleInventory()" \>	
+	
+	</form>
+<div id="inventoryView" style="visibility:hidden">
+
+</div>
+
+</html>

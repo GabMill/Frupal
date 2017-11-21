@@ -1,0 +1,36 @@
+20
+1,1,0,0,Tree
+1,2,0,1,Tree
+1,3,0,1,Tree
+0,1,0,1,Axe
+12,10,0,3,None
+12,9,0,2,None
+19,4,0,5,Chisel
+19,5,0,4,Power Bar
+18,6,0,4,Power Bar
+12,7,0,1,Chainsaw
+4,7,0,0,Boulder
+4,18,0,1,Boulder
+8,0,0,0,Shears
+14,2,0,4,Royal Diamonds
+13,9,0,1,Sledge
+16,14,0,1,Machete
+2,3,0,1,Axe
+2,9,0,1,Chainsaw
+6,13,0,5,Hatchet
+0,14,0,1,Power Bar
+0,17,0,3,None
+8,13,0,1,Jackhammer
+8,18,0,4,None
+11,7,0,1,Axe
+14,14,0,0,Power Bar
+5,5,0,0,Power Bar
+9,15,0,4,Chisel
+11,7,0,1,Boulder
+5,11,0,3,None
+17,11,0,3,None
+17,2,0,1,Axe
+18,3,0,1,Shears
+18,13,0,1,Sledge
+13,17,0,2,None
+15,10,0,1,Boulder
