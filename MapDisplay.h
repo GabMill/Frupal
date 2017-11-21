@@ -2,7 +2,7 @@
  * CS300: Frupal Project
  * Team G
  * Written by: Alexander Mason
- * File: Map_Display.h
+ * File: MapDisplay.h
  */
 #ifndef _MAP_DISPLAY
 #define _MAP_DISPLAY
