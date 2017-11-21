@@ -3,6 +3,7 @@
  * Team G
  * Written by: Alexander Mason
  * File: MapDisplay.h
+ * Interface for drawing the map, objects, comparing player to coordinates, and updating visibility on map
  */
 #ifndef _MAP_DISPLAY
 #define _MAP_DISPLAY
