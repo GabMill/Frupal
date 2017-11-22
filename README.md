@@ -1,7 +1,11 @@
 # Frupal
 
 *ASSETS*
-Assets can be found in the ./assets/ directory. Objects are found in 
+<br>
+Assets can be found in the <b>./assets/</b> directory. Objects are found in
+<br>
 ./assets/object
-and terrain is found in 
+<br>
+and terrain is found in
+<br>
 ./assets/terrain
