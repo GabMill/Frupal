@@ -1,3 +1,4 @@
+**ASSET LOADING/ID CODES**
 ID      NAME/Description            PROTOTYPE DISPLAY       FINAL DISPLAY       PROTOYPED?      ASSET LOADED
 ***************************************************************************************************************
 play:   Player                      duck.png                player.png          yes             yes
@@ -35,7 +36,50 @@ play:   Player                      duck.png                player.png          
 
 **TERMS**
 MAX:    The number determining the dimensions of the map.
+***************************************************************************************************************
+**DEFINITIONS**
+Bank Account:
+This contains the Hero’s Whiffles. Operations on a Bank Accounts consist of
+displaying, decrementing and incrementing its balance. A bank account balance
+should always be zero or more. Because one Whiffle is the smallest denomination
+in the Frupal Economy, a Bank Account balance is always a whole number.
 
+Binoculars:
+Binoculars allow you to increase the distance of your vision and cost 50Wh.
+
+Boat:
+When in the Hero’s possession, it allows the traversal of Map Cells containing water
+with no loss of energy. Boats cost 250Wh.
+
+Clue:
+A hint to the location of the Royal Diamonds. The clue may be true or may not. If it
+is true, everything in the clue is true, but if it is false, everything in the clue is false.
+A clue has the general format of “You are w from the western border, you possess
+more than x Whiffles, and the Royal Diamonds are located y to the east and z to the
+South.” Clues cost 25Wh.
+
+Energy Balance:
+This maintains a measure of the level of energy the Hero has available in units of
+Energy Points. If the balance ever drops to zero or less, the Hero dies. Operations
+on the energy balance consist of displaying, decrementing and incrementing its
+value. The energy balance is an Integer value.
+
+Game Map:
+This is the virtual space within which the Hero travels. Conceptually, it consists of a
+number of adjacent, addressable “Map Cells” that can contain tools, obstacles,
+treasure chests, etc. A Map Cell can also conceptually contain the Hero if the Hero’s
+location is the address of the specific Map Cell. See Appendix A – Game Map Details
+and Specification.
+
+Game State:
+The game state contains all the values necessary to represent a specific game
+instantiation at a particular point in play. Namely, the contents of all the Map cells,
+the visibility state of all the Map Cells, the Hero’s location, the Hero’s Bank Account
+Balance, the Hero’s Energy Balance and the Hero’s Item Inventory.
+
+Hero:
+The player’s alter ego in the Game. The player causes the Hero to make certain
+moves and take certain actions.
 ***************************************************************************************************************
 
 PROCESS
