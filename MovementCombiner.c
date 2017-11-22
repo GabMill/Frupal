@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <cgi.h>
-#include "movement_checker.h"
-#include "save.h"
+#include "MovementChecker.h"
+#include "Save.h"
 
 //variable to read in AJAX value
 char getting[1];
