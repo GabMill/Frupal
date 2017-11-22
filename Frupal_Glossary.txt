@@ -23,15 +23,15 @@ play:   Player                      duck.png                player.png          
 209:    Clue                        ?                       clue.png            no
 
 **ITEMS**
-itm0:   Hatchet                     Ha                      hatchet.png         no
-itm1:   Axe                         Ax                      axe.png             no
-itm2:   Chainsaw                    Cs                      chainsaw.png        no
-itm3:   Chisel                      Ch                      chisel.png          no
-itm4:   Sledge                      Sl                      sledge.png          no
-itm5:   Jackhammer                  Ja                      jackhammer.png      no
-itm6:   Machete                     Ma                      machete.png         no
-itm7:   Shears                      Sh                      shears.png          no
-itm8:   Binoculars                  Bi                      binoculars.png      no
+301:   Hatchet                     Ha                      hatchet.png         no
+302:   Axe                         Ax                      axe.png             no
+303:   Chainsaw                    Cs                      chainsaw.png        no
+304:   Chisel                      Ch                      chisel.png          no
+305:   Sledge                      Sl                      sledge.png          no
+306:   Jackhammer                  Ja                      jackhammer.png      no
+307:   Machete                     Ma                      machete.png         no
+308:   Shears                      Sh                      shears.png          no
+309:   Binoculars                  Bi                      binoculars.png      no
 
 **TERMS**
 MAX:    The number determining the dimensions of the map.
