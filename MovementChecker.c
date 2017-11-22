@@ -1,4 +1,4 @@
-#include "movement_checker.h"
+#include "MovementChecker.h"
 
 /*********************************
   *Input: char input, int *fx, int *fy, struct player hero
@@ -111,13 +111,40 @@ void obs_check(int x, int y, struct map q){
     }
 
     //if cell is water -> immovable
-    else if(q.cells[x][y].terrain == 2){
-        printf("Can't walk on Water<br><br>");
+    else if(game_Map.cells[x][y].terrain == 2){
+        //If already on water, which means already used boat
+        if(game_Map.cells[hero.x][hero.y].terrain == 2){
+            printf("Still moving through water with the boat");
 
-        //do not update coord
-        save(z);
+            //no energy is consumed
+            hero.x = x;
+            hero.y = y;
+        }
+
+        //if coming from non-water terrain
+        else{
+            //if user has a boat
+            if(hero.tool[9]){
+                printf("Using the boat! No energy will be consumed!");
+
+                //walk on water and use boat and no energy consumed
+                hero.x = x;
+                hero.y = y;
+            }
+
+            //no boat
+            else{
+                printf("Can't walk on Water<br><br>");
+
+                //decrement energy but don't change coord
+                --hero.energy;
+            }
+
+        }
+        //update whatever happened to the player data
+        save(hero);
     }
-
+ 
     //if cell is wall -> immoveable
     else if(q.cells[x][y].terrain == 3){
         printf("Can't walk through Walls<br><br>");
