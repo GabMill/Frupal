@@ -1,5 +1,5 @@
 # Frupal
-<h1>Game Loop</h1>
+<h2>Summary</h2>
 <p>Welcome to Frupal! When the game begins, a landing page is loaded and displayed in the user's web browser.</p>
 *ASSETS*
 <br>
