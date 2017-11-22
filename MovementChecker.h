@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "player.h"
-#include "map.h"
+#include "Player.h"
+#include "Map.h"
 
 /*********************************
   *Input: char input, int *fx, int *fy, struct player hero
