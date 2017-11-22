@@ -3,24 +3,24 @@ ID      NAME/Description            PROTOTYPE DISPLAY       FINAL DISPLAY       
 play:   Player                      duck.png                player.png          yes             yes
 
 **CELLS**
-mea:    Meadow                      #ADFF2F                 meadow.png          yes             no
-for:    Forest                      #228B22                 forest.png          yes             no
-wat:    Water                       #1E90FF                 water.gif           yes             no
-wal:    Wall                        #696969                 wall.png            yes             no
-bog:    Bog                         #3CB371                 bog.gif             yes             no
-swa:    Swamp                       #6B8E23                 swamp.png           yes             no
-fog:    Fog                         n/a                     fog.gif             yes             yes
+101:    Meadow                      #ADFF2F                 meadow.png          yes             no
+102:    Forest                      #228B22                 forest.png          yes             no
+103:    Water                       #1E90FF                 water.gif           yes             no
+104:    Wall                        #696969                 wall.png            yes             no
+105:    Bog                         #3CB371                 bog.gif             yes             no
+106:    Swamp                       #6B8E23                 swamp.png           yes             no
+107:    Fog                         n/a                     fog.gif             yes             yes
 
 **OBJECTS**
-obj0:   None                        n/a                     n/a                 no              n/a
-obj1:   Tree                        Tr                      tree.png            no              no
-obj2:   Boulder                     Bo                      boulder.png         no              no
-obj3:   Blackberry Bushes           BB                      bush.png            no              no
-obj4:   Power Bar                   PB                      powerbar.png        no              no
-obj5:   Type 1 Treasure Chest       1                       chest1.png          no
-obj6:   Type 2 Treasure Chest       2                       chest2.png          no
-obj7:   Royal Diamonds              D                       diamond.png         no
-obj8:   Clue                        ?                       clue.png            no
+201:    None                        n/a                     n/a                 yes             yes
+202:    Tree                        Tr                      tree.png            yes             yes
+203:    Boulder                     Bo                      boulder.png         yes             yes
+204:    Blackberry Bushes           BB                      bush.png            yes              no
+205:    Power Bar                   PB                      powerbar.png        yes             yes
+206:    Type 1 Treasure Chest       1                       chest1.png          yes             yes
+207:    Type 2 Treasure Chest       2                       chest2.png          yes             yes
+208:    Royal Diamonds              D                       diamond.png         yes             yes
+209:    Clue                        ?                       clue.png            no
 
 **ITEMS**
 itm0:   Hatchet                     Ha                      hatchet.png         no
