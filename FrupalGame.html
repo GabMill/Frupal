@@ -71,12 +71,12 @@ function keyEntry(event){
     xhttp.send();
 
     document.getElementById("game_window").innerHTML = xhttp.responseText;
-    
+
     xhttp.open("GET", "Inventory.cgi", false);
     xhttp.send();
 
     document.getElementById("inventory").innerHTML = xhttp.responseText;
-    
+
     xhttp.open("GET", "DisplayState.cgi", false);
     xhttp.send();
 
@@ -93,13 +93,29 @@ function PurchaseItem(){
 
     xhttp.open("GET", "Inventory.cgi", false);
     xhttp.send();
-    
+
     document.getElementById("inventory").innerHTML = xhttp.responseText;
-    
+
     xhttp.open("GET", "DisplayState.cgi", false);
     xhttp.send();
 
     document.getElementById("legend").innerHTML = xhttp.responseText;
+}
+
+function toggleInventory()
+{
+    var inv = document.getElementById("inventory");
+    var invTogg = document.getElementById("invToggle");
+    if(inv.style.visibility == "hidden")
+    {
+        inv.style.visibility = "visible";
+        invTogg.value = "Hide inventory";
+    }
+	else
+	{
+	    inv.style.visibility = "hidden";
+	    invTogg.value = "Show inventory";
+	}
 }
 
 function initMap(){
@@ -108,7 +124,7 @@ function initMap(){
     xhttp.send();
 
     document.getElementById("game_window").innerHTML = xhttp.responseText;
-    
+
     xhttp.open("GET", "Inventory.cgi", false);
     xhttp.send();
 
@@ -124,10 +140,11 @@ function initMap(){
 <body style="background-color:moccasin" onload="initMap()">
     <div id="frupal_ui">
         <div>
-        
-            <input type="submit" value="Purchase" onclick="PurchaseItem()"> 
+
+            <input type="submit" value="Purchase" onclick="PurchaseItem()">
             <div class="window" id="legend"></div>
             <div class="window" id="game_window"></div>
+            <input type="button" value="Hide inventory" id="invToggle" onclick="toggleInventory()">
             <div class="window" id="inventory"></div>
                 <br>
                 <br>Type in the direction you want to take in the text box!<br>
