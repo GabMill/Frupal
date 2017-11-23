@@ -5,8 +5,8 @@
  * File: Map_Display.c
  */
 
-#include "MapDisplay.h"
-#include "Save.h"
+#include "Map_Display.h"
+#include "save.h"
 
 char name[20];
 s_cgi *cgi;     //Define a pointer of type s_cgi, call it cgi

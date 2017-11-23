@@ -1,7 +1,13 @@
+/****************************************************
+  * Programmer: Leon Lee
+  * File: PlayerInventory.c
+  * Description: Print out all the data from the inventory
+  **************************************************/
+
 #include <stdio.h>
 #include <cgi.h>
 #include <string.h>
-#include "player.h"
+#include "Player.h"
 
 int main(void)
 {
@@ -28,9 +34,9 @@ int main(void)
     if(hero.tool[7])
         printf("Shears - 35Wh   (%d)</br>", hero.tool[7]);
     if(hero.tool[8])
-        printf("Biconulars - ?Wh   (%d)</br>", hero.tool[8]);
+        printf("Biconulars - 50Wh   (%d)</br>", hero.tool[8]);
     if(hero.tool[9])
-        printf("Boats - ?Wh   (%d)</br>", hero.tool[9]);
+        printf("Boats - 500Wh   (%d)</br>", hero.tool[9]);
     if(hero.tool[10])
         printf("Power Bar - 1Wh   (%d)</br>", hero.tool[10]);
 
