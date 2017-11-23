@@ -1,11 +1,14 @@
 /* ***********************
 /  Fruple Program
 /  Team G - Millen Wan
-/  Save state functions: check save.h for function comments
+/  Save state functions
   ************************/
-#include "save.h"
+#include "Save.h"
 
-int savePlayer(int size, int xCoord, int yCoord, int energy, int whiffles, int * bag, int length)
+// params: size = map dimension, xCoord/yCoord = current player coordinates
+// 	energy = current player energy, whiffles = current player whiffles
+// return 0 if successful
+int savePlayer(int size, int xCoord, int yCoord, int energy, int whiffles)
 {
 	// file variables
 	char * USER = "Save_Player_TeamG.txt";
@@ -19,15 +22,34 @@ int savePlayer(int size, int xCoord, int yCoord, int energy, int whiffles, int *
 	// write player data to file
 	fprintf(fileUser, "%d\n%d\n%d\n", size, xCoord, yCoord);
 	fprintf(fileUser, "%d\n%d\n", energy, whiffles);
-	// write items in inventory to file
-	for(int i = 0; i < length; ++i)
-	{
-		fprintf(fileUser, "%d\n", bag[i]);
-	}
-
+	
 	return fclose(fileUser);
 }
 
+// params: bag = useful inventory array, length = size of inventory array
+// return 0 if successful
+int saveInventory(int * bag, int length)
+{
+	// file variables
+	char * BAG = "Save_Inventory_TeamG.txt";
+	FILE * fileBag = fopen(BAG,"w");
+	// check if file can be opened
+	if(fileBag == NULL)
+	{
+		printf("Error opening %s\n", BAG);
+		return 1;
+	}
+	// write items in inventory to file
+	for(int i = 0; i < length; ++i)
+	{
+		fprintf(fileBag, "%d\n", bag[i]);
+	}
+
+	return fclose(fileBag);
+}
+
+// params: size = map dimension, cellData = block of map cell data from original file
+// return 0 if successful
 int saveMap(int size, char * cellData)
 {
 	// file variables
@@ -45,6 +67,10 @@ int saveMap(int size, char * cellData)
 	return fclose(fileMap);
 }
 
+// update map file with new visible cells and used items
+// params: size = map dimension, xC/yC, current player coordinates
+// 	vision = (1/2) binocular toggle, mapCells = map data
+// return 0 if successful
 int updateMap(int size, int xC, int yC, int vision, struct map * mapCells)
 {
 	// file variables
@@ -84,6 +110,8 @@ int updateMap(int size, int xC, int yC, int vision, struct map * mapCells)
 	return fclose(fileMap);
 }
 
+// load save files with original map file
+// return 0 on successful load of all save files
 int loadSave()
 {
 	// hardcode mape file name
@@ -123,7 +151,6 @@ int loadSave()
 	// end savePlayer file
 	// saveInventory file - hardcode switch statement using strcmp
 	fgets(line, MAX, fileMap);
-	// count the number of times an item appears in inventory
 	while(strchr(line,'#') == NULL)
 	{
 		if(strcmp(line,"Hatchet\n") == 0)
@@ -182,7 +209,8 @@ int loadSave()
 	fclose(fileMap);
 	// finish reading from original file
 	// write to save files
-	savePlayer(atoi(size),xC,yC,atoi(energy),atoi(whiffles),inventory,COUNT);
+	savePlayer(atoi(size),xC,yC,atoi(energy),atoi(whiffles));
+	saveInventory(inventory,COUNT);
 	saveMap(atoi(size),cellInfo);
 	return 0;
 }
