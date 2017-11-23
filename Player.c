@@ -1,4 +1,4 @@
-#include "player.h"
+#include "Player.h"
 
 /**********************************
   * Input: none -> txt needs to be ready
