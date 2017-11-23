@@ -9,8 +9,8 @@
 
 #include <cgi.h>
 #include <stdbool.h>
-#include "Map.h"
-#include "Player.h"
+#include "map.h"
+#include "player.h"
 
 //Update the visibility squares
 void setVisible(int pX, int pY, struct map updateMap);

@@ -17,8 +17,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <cgi.h>
-#include "MovementChecker.h"
-#include "Save.h"
+#include "movement_checker.h"
+#include "save.h"
 
 //variable to read in AJAX value
 char get_Env[1];
@@ -71,7 +71,7 @@ int main(){
     }
 
     //check royal diamonds
-    if(game_Map.rdX == hero.x && game_Map.rdY == hero.y){
+    if(game_Map.rdX == hero.x && place.rdY == hero.y){
         printf("<br>****************************<br>");
         printf("<br>YOU FOUND ROYAL DIAMOND! YOU WON! WE'LL BE GO BACK TO YOUR HELL HOLE :( <br><br>");
         printf("<br>****************************<br>");

@@ -4,7 +4,7 @@
   * Description: Calculate the coords / Check Terrain and respond / Check which item or obstacle and respond
   **************************************************/
 
-#include "MovementChecker.h"
+#include "movement_checker.h"
 
 /*********************************
   *Input: char input, int *fx, int *fy, struct player hero
