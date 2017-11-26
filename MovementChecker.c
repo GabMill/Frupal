@@ -366,6 +366,17 @@ void item_check(int x, int y, struct map game_Map){
 
     }
 
+    else if(!strcmp(picked, "Treasure Chest 1")){
+        //don't care about the tool, just do the thing needed
+        hero.whiffles += 100;
+        printf("<br>You encountered a Treasure Chest and found 100 Whiffles! Jackpot!<br><br>");
+    }
+
+    else if(!strcmp(picked, "Treasure Chest 2")){
+        hero.whiffles = 0;
+        printf("<br>You encountered a mimic and lost all your Whiffles!<br><br>");
+    }
+
     //save all the changes
     save(hero);
 }
