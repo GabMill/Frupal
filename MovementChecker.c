@@ -376,6 +376,26 @@ void item_check(int x, int y, struct map game_Map){
         hero.whiffles = 0;
         printf("<br>You encountered a mimic and lost all your Whiffles!<br><br>");
     }
+	
+	//Clue comparison - TRUE
+	else if(!strcmp(picked, "Clue_0")){
+		printf("<br>****************************<br>");
+        printf("<br>You find a clue on the ground! It reads this:");
+		printf("<br>You are %d grovnicks away from the southern border...", y);
+		printf("<br>The diamonds are %d steps from sunset...", game_Map.rdX);
+		printf("<br>and %d from the southern shore...<br><br>", game_Map.rdY);
+        printf("<br>****************************<br>");
+	}
+	
+	//Clue comparison - FALSE
+	else if(!strcmp(picked, "Clue_1")){
+		printf("<br>****************************<br>");
+        printf("<br>You find a clue on the ground! It reads this:");
+		printf("<br>You are %d grovnicks away from the southern border...", y-2);
+		printf("<br>The diamonds are %d steps from sunset...", game_Map.rdX+1);
+		printf("<br>and %d from the southern shore...<br><br>", game_Map.rdY-1);
+        printf("<br>****************************<br>");
+	}
 
     //save all the changes
     save(hero);
