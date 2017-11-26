@@ -34,9 +34,9 @@ void main(void){
     */
 
     struct player hero = load();
-
-    setVisible(hero.x, hero.y, gameMap);
+    
     updateMap(gameMap.dimensions, hero.x, hero.y, 1, &gameMap);
+    setVisible(hero.x, hero.y, hero.tools[8], gameMap);
     drawMap(hero.x, hero.y, gameMap);
 }
 
@@ -47,9 +47,12 @@ void main(void){
  *      int playerY:        The Y coordinate of the player on the map
  *      struct map updMap:  The map generated from a file 
  */
-void setVisible(int playerX, int playerY, struct map updMap){
-    for(int i = playerX - 1; i <= playerX + 1; ++i){
-        for(int j = playerY - 1; j <= playerY + 1; ++j){
+void setVisible(int playerX, int playerY, int binoculars, struct map updMap){
+    int mod = 1;
+    if(binoculars != 0)
+        ++mod;
+    for(int i = playerX - mod; i <= playerX + mod; ++i){
+        for(int j = playerY - mod; j <= playerY + mod; ++j){
             if((i >= 0) && (i < updMap.dimensions) && (j >= 0) && (j < updMap.dimensions))
                 updMap.cells[i][j].isVisible = 1;
         }
