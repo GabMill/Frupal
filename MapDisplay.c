@@ -11,7 +11,7 @@
 char name[20];
 s_cgi *cgi;     //Define a pointer of type s_cgi, call it cgi
 
-    //Whether a space should be visible. 
+    //Whether a space should be visible.
     //Default set to not-visible
 
     //A terrain ID indicating what type of terrain the map cell is:
@@ -34,9 +34,9 @@ void main(void){
     */
 
     struct player hero = load();
-    
+
     updateMap(gameMap.dimensions, hero.x, hero.y, 1, &gameMap);
-    setVisible(hero.x, hero.y, hero.tools[8], gameMap);
+    setVisible(hero.x, hero.y, hero.tool[8], gameMap);
     drawMap(hero.x, hero.y, gameMap);
 }
 
@@ -45,7 +45,7 @@ void main(void){
  *  Input:
  *      int playerX:        The X coordinate of the player on the map
  *      int playerY:        The Y coordinate of the player on the map
- *      struct map updMap:  The map generated from a file 
+ *      struct map updMap:  The map generated from a file
  */
 void setVisible(int playerX, int playerY, int binoculars, struct map updMap){
     int mod = 1;
@@ -62,7 +62,7 @@ void setVisible(int playerX, int playerY, int binoculars, struct map updMap){
 
 /*  Generate and output the html for displaying the map
  *  Input:
- *      struct map updMap: The map generated from a file 
+ *      struct map updMap: The map generated from a file
  */
 void drawMap(int pX, int pY, struct map updMap){
     printf("<html>\n");
@@ -132,7 +132,7 @@ void drawMap(int pX, int pY, struct map updMap){
                                    printf("water.jpg'>");
                                    break;
                                }
-                        case 3:{   //Draw a wall tile 
+                        case 3:{   //Draw a wall tile
                                    printf("wall.jpg'>");
                                    break;
                                }
@@ -161,9 +161,9 @@ void drawMap(int pX, int pY, struct map updMap){
     else{
         printf("\n\nTHE MAP IS NOT THERE\n\n");
     }
-    printf("        </div>"); 
-    printf("    </div>"); 
-    printf("</body>"); 
+    printf("        </div>");
+    printf("    </div>");
+    printf("</body>");
     printf("</html>");
 }
 
@@ -188,7 +188,7 @@ bool comparePlayerToCoor(int cellX, int cellY, int pX, int pY){
 
 /*  Draws the objects of the map on top of the terrain
  *  Input:
- *      i:  [FILL] 
+ *      i:  [FILL]
  *      j:  [FILL]
  *  Output:
  *      N/A
@@ -196,7 +196,7 @@ bool comparePlayerToCoor(int cellX, int cellY, int pX, int pY){
 void drawObjects(int i, int j, struct map updMap){
     //Draw the object on top of the terrain on z-index 2
      if(!strcmp("None", updMap.cells[i][j].item)){}
-     else{  
+     else{
          printf("<img class='object' ");
          if(!strcmp("Tree", updMap.cells[i][j].item)){
              //Draw a tree on z-index 2
