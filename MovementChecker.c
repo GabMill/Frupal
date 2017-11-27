@@ -83,17 +83,17 @@ void dir_move(char input, int *fx, int *fy, struct player hero){
 }
 
 /*********************************
-  *Input: int x, int y, struct map game_Map 
-  *Output: void -> changes player's energy and moveability 
-  *Description: reads in player's coord and see if that cell is a moveable cell
-                if moveable -> player data will be renewed with the inputted x, y coords
-                if not moveable -> player data will not be renewed with the inputted x, y coords 
-*********************************/
+ *Input: int x, int y, struct map game_Map 
+ *Output: void -> changes player's energy and moveability 
+ *Description: reads in player's coord and see if that cell is a moveable cell
+ if moveable -> player data will be renewed with the inputted x, y coords
+ if not moveable -> player data will not be renewed with the inputted x, y coords 
+ *********************************/
 void obs_check(int x, int y, struct map game_Map){
     //load in original coord previous to movement
     struct player hero = load();
-	
-	int compare = game_Map.cells[x][y].terrain;
+
+    int compare = game_Map.cells[x][y].terrain;
 
     //if cell is meadow -> moveable
     if(compare == 0){
@@ -199,14 +199,14 @@ void item_check(int x, int y, struct map game_Map){
 
     //tool existence checker
     int i = 0;
-	
-	//Which item is picked up
+
+    //Which item is picked up
     char picked[20];
 
-	//Initialize the comparing char array
+    //Initialize the comparing char array
     strcpy(picked, game_Map.cells[hero.x][hero.y].item);
-	
-	
+
+
     //pickable item if-loop -> if item is matched then print out which one it is and the cost
     if(!strcmp(picked, "Hatchet")){
         printf("<br>Hatchet Found!<br><br>");
@@ -286,6 +286,9 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 8;
             --hero.tool[0];
             ++i;
+
+            //change the map cell into none if removed
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         //repeating procedure for all tool usage for Tree
@@ -294,6 +297,7 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 6;
             --hero.tool[1];
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         else if(hero.tool[2] && !i){
@@ -301,6 +305,7 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 2;
             --hero.tool[2];
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         //if zero item then use default
@@ -308,6 +313,7 @@ void item_check(int x, int y, struct map game_Map){
             printf("<br>You broke your arm and lost 10 energy but got rid of a Tree!<br><br>");
             hero.energy -= 10;
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
     }
 
@@ -318,6 +324,7 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 15;
             --hero.tool[3];
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         else if(hero.tool[4] && !i){
@@ -325,6 +332,7 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 12;
             --hero.tool[4];
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         else if(hero.tool[5] && !i){
@@ -332,12 +340,14 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 4;
             --hero.tool[5];
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         else{
             printf("<br>You lost 16 energy and a finger but got rid of a Boulder!<br><br>");
             hero.energy -= 16;
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
     }
@@ -349,6 +359,7 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 2;
             --hero.tool[6];
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         else if(hero.tool[7] && !i){
@@ -356,12 +367,14 @@ void item_check(int x, int y, struct map game_Map){
             hero.energy -= 2;
             --hero.tool[7];
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
         else{
             printf("<br>You are bleeding heavily in your leg and lost 4 energy but no more blackberry bush<br><br>");
             hero.energy -= 4;
             ++i;
+            strcpy(game_Map.cells[x][y].item, "None");
         }
 
     }
@@ -370,33 +383,39 @@ void item_check(int x, int y, struct map game_Map){
         //don't care about the tool, just do the thing needed
         hero.whiffles += 100;
         printf("<br>You encountered a Treasure Chest and found 100 Whiffles! Jackpot!<br><br>");
+        strcpy(game_Map.cells[x][y].item, "None");
     }
 
     else if(!strcmp(picked, "Treasure Chest 2")){
         hero.whiffles = 0;
         printf("<br>You encountered a mimic and lost all your Whiffles!<br><br>");
+        strcpy(game_Map.cells[x][y].item, "None");
     }
-	
-	//Clue comparison - TRUE
-	else if(!strcmp(picked, "Clue_0")){
-		printf("<br>****************************<br>");
-        printf("<br>You find a clue on the ground! It reads this:");
-		printf("<br>You are %d grovnicks away from the southern border...", y);
-		printf("<br>The diamonds are %d steps from sunset...", game_Map.rdX);
-		printf("<br>and %d from the southern shore...<br><br>", game_Map.rdY);
-        printf("<br>****************************<br>");
-	}
-	
-	//Clue comparison - FALSE
-	else if(!strcmp(picked, "Clue_1")){
-		printf("<br>****************************<br>");
-        printf("<br>You find a clue on the ground! It reads this:");
-		printf("<br>You are %d grovnicks away from the southern border...", y-2);
-		printf("<br>The diamonds are %d steps from sunset...", game_Map.rdX+1);
-		printf("<br>and %d from the southern shore...<br><br>", game_Map.rdY-1);
-        printf("<br>****************************<br>");
-	}
 
+    //Clue comparison - TRUE
+    else if(!strcmp(picked, "Clue_0")){
+        printf("<br>****************************<br>");
+        printf("<br>You find a clue on the ground! It reads this:");
+        printf("<br>You are %d grovnicks away from the southern border...", y);
+        printf("<br>The diamonds are %d steps from sunset...", game_Map.rdX);
+        printf("<br>and %d from the southern shore...<br><br>", game_Map.rdY);
+        printf("<br>****************************<br>");
+        strcpy(game_Map.cells[x][y].item, "None");
+    }
+
+    //Clue comparison - FALSE
+    else if(!strcmp(picked, "Clue_1")){
+        printf("<br>****************************<br>");
+        printf("<br>You find a clue on the ground! It reads this:");
+        printf("<br>You are %d grovnicks away from the southern border...", y-2);
+        printf("<br>The diamonds are %d steps from sunset...", game_Map.rdX+1);
+        printf("<br>and %d from the southern shore...<br><br>", game_Map.rdY-1);
+        printf("<br>****************************<br>");
+        strcpy(game_Map.cells[x][y].item, "None");
+    }
+
+    //change the saved map value
+    updateMap(hero.max, x, y, 1, &game_Map);
     //save all the changes
     save(hero);
 }

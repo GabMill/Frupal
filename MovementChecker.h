@@ -3,6 +3,7 @@
 #include <string.h>
 #include "Player.h"
 #include "Map.h"
+#include "Save.h"
 
 /*********************************
   *Input: char input, int *fx, int *fy, struct player hero
