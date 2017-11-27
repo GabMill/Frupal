@@ -1,0 +1,105 @@
+<script>
+
+function dropdownClick()
+{
+    if (!event.target.matches('#dropdownButton'))
+    {
+        var dropdowns = document.getElementsByClassName("dropdownContent");
+        var i;
+        for (i = 0; i < dropdowns.length; i++)
+        {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show'))
+            {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+    document.getElementById("gameSelector").classList.toggle("show");
+    var playButton = document.getElementById("dropdownButton");
+    if(playButton.value == "Play game")
+    {
+        playButton.value = "Select a map to play"
+    }
+    else
+    {
+        playButton.value = "Play game"
+    }
+}
+
+</script>
+
+<style>
+
+    h1
+    {
+        text-align: center;
+    }
+
+    body
+    {
+        background-color:#ffe6e6;
+    }
+
+    #dropdownButton {
+        background-color: grey;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dropdown
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dropdownContent
+    {
+        display: none;
+        background-color: #f9f9f9;
+        width: 160px;
+        z-index: 1;
+        border-radius: 5px;
+    }
+
+    .dropdownContent a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdownContent a:hover
+    {
+        background-color: #f1f1f1
+    }
+
+    .show
+    {
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+</style>
+<head>
+<h1>Welcome to Frupal!</h1>
+</head>
+<body>
+    <div class="dropdown">
+      <input type="button" onclick="dropdownClick()" value="Play game" id="dropdownButton">
+      <div id="gameSelector" class="dropdownContent">
+        <a onclick="location.href = 'FrupalGame.html'">Map 1</a>
+        <a onclick="location.href = 'FrupalGame.html'">Map 2</a>
+        <a onclick="location.href = 'FrupalGame.html'">Map 3</a>
+      </div>
+    </div>
+</body>
