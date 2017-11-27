@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "Map.h"
+#include "Player.h"
 
 int loadSave();
 int savePlayer(int size, int xCoord, int yCoord, int energy, int whiffles);

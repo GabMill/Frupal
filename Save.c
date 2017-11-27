@@ -11,7 +11,7 @@
 int savePlayer(int size, int xCoord, int yCoord, int energy, int whiffles)
 {
 	// file variables
-	char * USER = "Save_Player_TeamG.txt";
+	char * USER = "Player_Save_File.txt";
 	FILE * fileUser = fopen(USER,"w");
 	// check if file can be opened
 	if(fileUser == NULL)
@@ -209,8 +209,20 @@ int loadSave()
 	fclose(fileMap);
 	// finish reading from original file
 	// write to save files
-	savePlayer(atoi(size),xC,yC,atoi(energy),atoi(whiffles));
-	saveInventory(inventory,COUNT);
+        struct player hero;
+        hero.max = atoi(size);
+        hero.x = xC;
+        hero.y = yC;
+        hero.energy = atoi(energy);
+        hero.whiffles = atoi(whiffles);
+
+        for(int i = 0; i < 11; ++i)
+            hero.tool[i] = inventory[i];
+
+        save(hero);
+
+	//savePlayer(atoi(size),xC,yC,atoi(energy),atoi(whiffles));
+	//saveInventory(inventory,COUNT);
 	saveMap(atoi(size),cellInfo);
 	return 0;
 }

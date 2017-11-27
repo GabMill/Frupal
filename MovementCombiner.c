@@ -61,13 +61,8 @@ int main(){
         printf("<br>****************************<br>");
         printf("<br>YOU RAN OUT OF ENERGY! WE'RE SETTING YOU BACK TO ORIGINAL STATUS!<br><br>");
         printf("<br>****************************<br>");
-        hero.max = hero.max;
-        hero.x = 0;
-        hero.y = 0;
-        hero.energy = 100;
-        hero.whiffles = 1000;
-        
-        save(hero);
+
+        loadSave();
     }
 
     //check royal diamonds
@@ -76,13 +71,7 @@ int main(){
         printf("<br>YOU FOUND ROYAL DIAMOND! YOU WON! WE'LL BE GO BACK TO YOUR HELL HOLE :( <br><br>");
         printf("<br>****************************<br>");
         
-        hero.max = hero.max;
-        hero.x = 0;
-        hero.y = 0;
-        hero.energy = 100;
-        hero.whiffles = 1000;
-        
-        save(hero);
+        loadSave();    
     }
 
     //delete map

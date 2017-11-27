@@ -1,3 +1,6 @@
+#ifndef _PLAYER
+#define _PLAYER
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,3 +31,5 @@ struct player load();
 **********************************/
 
 void save(struct player hero);
+
+#endif
