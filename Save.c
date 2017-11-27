@@ -25,10 +25,9 @@ int saveMap(int size, char * cellData)
 }
 
 // update map file with new visible cells and used items
-// params: size = map dimension, xC/yC, current player coordinates
-// 	vision = (1/2) binocular toggle, mapCells = map data
+// params: size = map dimension, xC/yC, current player coordinates, mapCells = map data
 // return 0 if successful
-int updateMap(int size, int xC, int yC, int vision, struct map * mapCells)
+int updateMap(int size, int xC, int yC, struct map * mapCells)
 {
 	// file variables
 	char * MAP = "Save_MapCells_TeamG.txt";
@@ -48,7 +47,7 @@ int updateMap(int size, int xC, int yC, int vision, struct map * mapCells)
 		{
 			struct cell current = mapCells->cells[i][j];
 			// update cell visibility if within vision
-			if(i >= (xC-vision) && i <= (xC+vision) && j >= (yC-vision) && j <=(yC+vision))
+			if(i >= (xC-1) && i <= (xC+1) && j >= (yC-1) && j <=(yC+1))
 			{
 				current.isVisible = 1;
 			}
