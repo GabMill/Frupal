@@ -5,6 +5,49 @@
   ************************/
 #include "Save.h"
 
+// params: size = map dimension, xCoord/yCoord = current player coordinates
+// 	energy = current player energy, whiffles = current player whiffles
+// return 0 if successful
+int savePlayer(int size, int xCoord, int yCoord, int energy, int whiffles)
+{
+	// file variables
+	char * USER = "Player_Save_File.txt";
+	FILE * fileUser = fopen(USER,"w");
+	// check if file can be opened
+	if(fileUser == NULL)
+	{
+		printf("Error opening %s\n", USER);
+		return 1;
+	}
+	// write player data to file
+	fprintf(fileUser, "%d\n%d\n%d\n", size, xCoord, yCoord);
+	fprintf(fileUser, "%d\n%d\n", energy, whiffles);
+	
+	return fclose(fileUser);
+}
+
+// params: bag = useful inventory array, length = size of inventory array
+// return 0 if successful
+int saveInventory(int * bag, int length)
+{
+	// file variables
+	char * BAG = "Save_Inventory_TeamG.txt";
+	FILE * fileBag = fopen(BAG,"w");
+	// check if file can be opened
+	if(fileBag == NULL)
+	{
+		printf("Error opening %s\n", BAG);
+		return 1;
+	}
+	// write items in inventory to file
+	for(int i = 0; i < length; ++i)
+	{
+		fprintf(fileBag, "%d\n", bag[i]);
+	}
+
+	return fclose(fileBag);
+}
+
 // params: size = map dimension, cellData = block of map cell data from original file
 // return 0 if successful
 int saveMap(int size, char * cellData)
@@ -25,9 +68,10 @@ int saveMap(int size, char * cellData)
 }
 
 // update map file with new visible cells and used items
-// params: size = map dimension, xC/yC, current player coordinates, mapCells = map data
+// params: size = map dimension, xC/yC, current player coordinates
+// 	vision = (1/2) binocular toggle, mapCells = map data
 // return 0 if successful
-int updateMap(int size, int xC, int yC, struct map * mapCells)
+int updateMap(int size, int xC, int yC, int vision, struct map * mapCells)
 {
 	// file variables
 	char * MAP = "Save_MapCells_TeamG.txt";
@@ -47,7 +91,7 @@ int updateMap(int size, int xC, int yC, struct map * mapCells)
 		{
 			struct cell current = mapCells->cells[i][j];
 			// update cell visibility if within vision
-			if(i >= (xC-1) && i <= (xC+1) && j >= (yC-1) && j <=(yC+1))
+			if(i >= (xC-vision) && i <= (xC+vision) && j >= (yC-vision) && j <=(yC+vision))
 			{
 				current.isVisible = 1;
 			}
@@ -177,6 +221,8 @@ int loadSave()
 
         save(hero);
 
+	//savePlayer(atoi(size),xC,yC,atoi(energy),atoi(whiffles));
+	//saveInventory(inventory,COUNT);
 	saveMap(atoi(size),cellInfo);
 	return 0;
 }
