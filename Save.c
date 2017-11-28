@@ -5,8 +5,6 @@
   ************************/
 #include "Save.h"
 
-// params: size = map dimension, cellData = block of map cell data from original file
-// return 0 if successful
 int saveMap(int size, char * cellData)
 {
 	// file variables
@@ -24,9 +22,6 @@ int saveMap(int size, char * cellData)
 	return fclose(fileMap);
 }
 
-// update map file with new visible cells and used items
-// params: size = map dimension, xC/yC, current player coordinates, mapCells = map data
-// return 0 if successful
 int updateMap(int size, int xC, int yC, struct map * mapCells)
 {
 	// file variables
@@ -66,92 +61,86 @@ int updateMap(int size, int xC, int yC, struct map * mapCells)
 	return fclose(fileMap);
 }
 
-// load save files with original map file
-// return 0 on successful load of all save files
-int loadSave()
+int resetMap()
 {
 	// hardcode mape file name
 	FILE * fileMap = fopen("map.txt","r");
-	int MAX = 31; 		// file line read length
-	int COUNT = 11;		// inventory size & smaller input length
-	char line[MAX];		// file read line
-	char size[COUNT];	// map dimension
-	int xC;			// current player coordinates
-	int yC;
-	char energy[COUNT];	// current player energy
-	char whiffles[COUNT];	// current player whiffles
-	int inventory[COUNT];	// current inventory count
-	// initialize inventory
-	for(int i = 0; i<COUNT; ++i)
-	{
-		inventory[i] = 0;
-	}
-	// use a strcat to hold the bottom half of original file to save as map file
-	char cellInfo[MAX*sizeof(size)];	// buffer to hold all map cells information
 	// check if file can be read
 	if(fileMap == NULL)
 	{
 		printf("Error opening map file.");
 		return 1;
 	}
+	int MAX = 31; 		// file line read length
+	int COUNT = 11;		// inventory size & smaller input length
+	char line[MAX];		// file read line
+	struct player her;
+	// initialize hero.tool
+	for(int i = 0; i<COUNT; ++i)
+	{
+		hero.tool[i] = 0;
+	}
 	// parse file assuming correct formatting followed - no error checking
 	// savePlayer file
-	fgets(line, MAX, fileMap); 		// Map file title
-	fgets(size, COUNT, fileMap); 		// Map dimension
+	fgets(line, MAX, fileMap); 				// Map file title
+	hero.max = atoi(fgets(line, COUNT, fileMap)); 		// Map dimension
+	// use a strcat to hold the bottom half of original file to save as map file
+	char cellInfo[MAX*hero.max*hero.max];	// buffer to hold all map cells information
 	fgets(line, MAX, fileMap); 		// Map file format break
 	fgets(line, MAX, fileMap); 		// Player coordinates - split below
-	xC = atoi(strtok(line, ","));
-	yC = atoi(strtok(NULL, ","));
-	fgets(energy, COUNT, fileMap);		// Player energy
-	fgets(whiffles, COUNT, fileMap);	// Player whiffles
+	hero.x = atoi(strtok(line, ","));
+	hero.y = atoi(strtok(NULL, ","));
+	hero.energy = atoi(fgets(line, COUNT, fileMap));	// Player energy
+	hero.whiffles = atoi(fgets(line, COUNT, fileMap));	// Player whiffles
 	// end savePlayer file
 	// saveInventory file - hardcode switch statement using strcmp
 	fgets(line, MAX, fileMap);
+	// count the number of imes an item appears in hero.tool
 	while(strchr(line,'#') == NULL)
 	{
 		if(strcmp(line,"Hatchet\n") == 0)
 		{
-			++inventory[0];
+			++hero.tool[0];
 		}
 		else if(strcmp(line,"Axe\n") == 0)
 		{
-			++inventory[1];
+			++hero.tool[1];
 		}
 		else if(strcmp(line,"Chainsaw\n") == 0)
 		{
-			++inventory[2];
+			++hero.tool[2];
 		}
 		else if(strcmp(line,"Chisel\n") == 0)
 		{
-			++inventory[3];
+			++hero.tool[3];
 		}
 		else if(strcmp(line,"Sledge\n") == 0)
 		{
-			++inventory[4];
+			++hero.tool[4];
 		}
 		else if(strcmp(line,"Jackhammer\n") == 0)
 		{
-			++inventory[5];
+			++hero.tool[5];
 		}
 		else if(strcmp(line,"Machete\n") == 0)
 		{
-			++inventory[6];
+			++hero.tool[6];
 		}
 		else if(strcmp(line,"Shears\n") == 0)
 		{
-			++inventory[7];
+			++hero.tool[7];
 		}
 		else if(strcmp(line,"Binoculars\n") == 0)
 		{
-			++inventory[8];
+			++hero.tool[8];
 		}
-		else if(strcmp(line,"Pretty Rock\n") == 0)
+		else if(strcmp(line,"Boat\n") == 0)
 		{
-			++inventory[9];
+			++hero.tool[9];
 		}
-		else // group all unknown items
+		else // Power Bar
 		{
-			++inventory[10];
+			++hero.tool[10];
 		}
 		fgets(line, MAX, fileMap);	// grab next item or delimiter
 	}
@@ -165,18 +154,8 @@ int loadSave()
 	fclose(fileMap);
 	// finish reading from original file
 	// write to save files
-        struct player hero;
-        hero.max = atoi(size);
-        hero.x = xC;
-        hero.y = yC;
-        hero.energy = atoi(energy);
-        hero.whiffles = atoi(whiffles);
-
-        for(int i = 0; i < 11; ++i)
-            hero.tool[i] = inventory[i];
-
+       
         save(hero);
-
-	saveMap(atoi(size),cellInfo);
+	saveMap(hero.max,cellInfo);
 	return 0;
 }

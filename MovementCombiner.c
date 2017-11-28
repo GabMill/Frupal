@@ -62,7 +62,7 @@ int main(){
         printf("<br>YOU RAN OUT OF ENERGY! WE'RE SETTING YOU BACK TO ORIGINAL STATUS!<br><br>");
         printf("<br>****************************<br>");
 
-        loadSave();
+        resetMap();
     }
 
     //check royal diamonds
@@ -71,7 +71,7 @@ int main(){
         printf("<br>YOU FOUND ROYAL DIAMOND! YOU WON! WE'LL BE GO BACK TO YOUR HELL HOLE :( <br><br>");
         printf("<br>****************************<br>");
         
-        loadSave();    
+        resetMap();    
     }
 
     //delete map

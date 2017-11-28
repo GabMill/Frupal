@@ -415,7 +415,7 @@ void item_check(int x, int y, struct map game_Map){
     }
 
     //change the saved map value
-    updateMap(hero.max, x, y, 1, &game_Map);
+    updateMap(hero.max, x, y, &game_Map);
     //save all the changes
     save(hero);
 }

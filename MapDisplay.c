@@ -35,7 +35,7 @@ void main(void){
 
     struct player hero = load();
 
-    updateMap(gameMap.dimensions, hero.x, hero.y, 1, &gameMap);
+    updateMap(gameMap.dimensions, hero.x, hero.y, &gameMap);
     setVisible(hero.x, hero.y, hero.tool[8], gameMap);
     drawMap(hero.x, hero.y, gameMap);
 }
