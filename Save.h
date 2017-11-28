@@ -8,8 +8,8 @@
 #include <string.h>
 
 // grab struct map and player
-#include "map.h"
-#include "player.h"
+#include "Map.h"
+#include "Player.h"
 
 // save map cells to Save_MapCells_TeamG.txt
 // params: size = map dimension, cellData = block of map cell data from original file
