@@ -212,19 +212,19 @@ void drawObjects(int i, int j, struct map updMap){
          }
          else if(!strcmp("Treasure Chest 1", updMap.cells[i][j].item)){
              //Draw a Type 1 Treasure Chest on z-index 2
-             printf("src='assets/chest1.png'");
+             printf("src='assets/object/chest1.png'");
          }
          else if(!strcmp("Treasure Chest 2", updMap.cells[i][j].item)){
              //Draw a Type 2 Treasure Chest on z-index 2
-             printf("src='assets/chest2.png'");
+             printf("src='assets/object/chest2.png'");
          }
          else if(!strcmp("Royal Diamonds", updMap.cells[i][j].item)){
              //Draw a Royal Diamonds on z-index 2
-             printf("src='assets/diamond.png'");
+             printf("src='assets/object/diamond.png'");
          }
          else if(!strcmp("Clue", updMap.cells[i][j].item)){
              //Draw a Clue on z-index 2
-             printf("src='assets/clue.png'");
+             printf("src='assets/object/clue.png'");
          }
          printf(">");
      }
