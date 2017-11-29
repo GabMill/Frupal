@@ -151,8 +151,8 @@ void item_check(int x, int y, struct map q){
         ++z.tool[7];
     }
 
-    else if(!strcmp(q.cells[x][y].item, "Binocular")){
-        printf("<br>Binocular Found!<br><br>");
+    else if(!strcmp(q.cells[x][y].item, "Binoculars")){
+        printf("<br>Binoculars Found!<br><br>");
         ++z.tool[8];
     }
 

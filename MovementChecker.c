@@ -256,8 +256,8 @@ void item_check(int x, int y, struct map game_Map){
         printf("<br>Click the Purchase button to Purchase!<br>");
     }
 
-    else if(!strcmp(picked, "Binocular")){
-        printf("<br>Binocular Found!<br><br>");
+    else if(!strcmp(picked, "Binoculars")){
+        printf("<br>Binoculars Found!<br><br>");
         printf("<br>Cost = 50 Wh<br>"); 
         printf("<br>Click the Purchase button to Purchase!<br>");
     }

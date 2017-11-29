@@ -18,7 +18,7 @@ int saveMap(int size, char * cellData)
 	}
 	// write cell data block to map save file
 	fprintf(fileMap, "%d\n%s", size, cellData);
-	
+
 	return fclose(fileMap);
 }
 
@@ -57,7 +57,7 @@ int updateMap(int size, int xC, int yC, struct map * mapCells)
 			}
 		}
 	}
-	
+
 	return fclose(fileMap);
 }
 
@@ -163,7 +163,7 @@ int resetMap()
 	fclose(fileMap);
 	// finish reading from original file
 	// write to save files
-       
+
         save(hero);
 	saveMap(hero.max,cellInfo);
 	return 0;

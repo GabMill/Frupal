@@ -47,9 +47,9 @@ void main(void){
  *      int playerY:        The Y coordinate of the player on the map
  *      struct map updMap:  The map generated from a file
  */
-void setVisible(int playerX, int playerY, int binoculars, struct map updMap){
+void setVisible(int playerX, int playerY, int Binoculars, struct map updMap){
     int mod = 1;
-    if(binoculars != 0)
+    if(Binoculars != 0)
         ++mod;
     for(int i = playerX - mod; i <= playerX + mod; ++i){
         for(int j = playerY - mod; j <= playerY + mod; ++j){
@@ -212,19 +212,59 @@ void drawObjects(int i, int j, struct map updMap){
          }
          else if(!strcmp("Treasure Chest 1", updMap.cells[i][j].item)){
              //Draw a Type 1 Treasure Chest on z-index 2
-             printf("src='assets/object/chest1.png'");
+             printf("src='assets/chest1.png'");
          }
          else if(!strcmp("Treasure Chest 2", updMap.cells[i][j].item)){
              //Draw a Type 2 Treasure Chest on z-index 2
-             printf("src='assets/object/chest2.png'");
+             printf("src='assets/chest2.png'");
          }
          else if(!strcmp("Royal Diamonds", updMap.cells[i][j].item)){
              //Draw a Royal Diamonds on z-index 2
-             printf("src='assets/object/diamond.png'");
+             printf("src='assets/diamond.png'");
          }
          else if(!strcmp("Clue", updMap.cells[i][j].item)){
              //Draw a Clue on z-index 2
              printf("src='assets/object/clue.png'");
+         }
+         else if(!strcmp("Binoculars", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Boat", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Axe", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Chainsaw", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Hatchet", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Chisel", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Sledge", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Jackhammer", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Machete", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
+         }
+         else if(!strcmp("Shears", updMap.cells[i][j].item)){
+             //Draw default item.png
+             printf("src='assets/item.png'");
          }
          printf(">");
      }

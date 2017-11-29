@@ -13,7 +13,7 @@
 #include "Player.h"
 
 //Update the visibility squares
-void setVisible(int pX, int pY, int binoculars, struct map updateMap);
+void setVisible(int pX, int pY, int Binoculars, struct map updateMap);
 
 //Draw the html displaying the map
 void drawMap(int pX, int pY, struct map updatedMap);

@@ -88,7 +88,7 @@ Sledge
 18,23,0,2,None
 18,22,0,4,None
 18,21,0,4,None
-18,8,0,0,Binocular
+18,8,0,0,Binoculars
 19,24,0,2,None
 19,23,0,2,None
 19,22,0,3,None

@@ -31,7 +31,7 @@ itm4:   Sledge                      Sl                      sledge.png          
 itm5:   Jackhammer                  Ja                      jackhammer.png      no
 itm6:   Machete                     Ma                      machete.png         no
 itm7:   Shears                      Sh                      shears.png          no
-itm8:   Binoculars                  Bi                      binoculars.png      no
+itm8:   Binoculars                  Bi                      Binoculars.png      no
 
 **TERMS**
 MAX:    The number determining the dimensions of the map.
@@ -40,7 +40,7 @@ MAX:    The number determining the dimensions of the map.
 
 PROCESS
 1.  Find where the player is on the map.
-2.  Check if the player has binoculars
+2.  Check if the player has Binoculars
 3.  Calculate all cells adjacent to this space.
     a.  Set every adjacent cell visiblity to true.
 4.  Calculate all diagonal cells to this space.

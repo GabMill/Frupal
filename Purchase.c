@@ -134,10 +134,10 @@ int main(){
         }
     }
 
-    //if the player is on the Binocular item
-    else if(!strcmp(picked, "Binocular")){
+    //if the player is on the Binoculars item
+    else if(!strcmp(picked, "Binoculars")){
         if(hero.whiffles > 49){
-            printf("<br>Binocular Purchased!<br>");
+            printf("<br>Binoculars Purchased!<br>");
             ++hero.tool[8];
             hero.whiffles -= 50;
             strcpy(game_Map.cells[hero.x][hero.y].item, "None");
