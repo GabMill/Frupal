@@ -67,7 +67,12 @@ int resetMap()
 	int COUNT = 11;		// inventory size & smaller input length
 	char line[MAX];		// file read line - reads map name before player info
 	// Get map file name
-	FILE * fileMapName = fopen("Map_Name.txt");
+	FILE * fileMapName = fopen("Map_Name.txt","r");
+	if(fileMapName == NULL)
+	{
+		printf("Map_Name.txt not found, map name defaulted to map.txt");
+		strcpy(line, "map.txt");
+	}
 	fgets(line, MAX, fileMapName);	// grab map name
 	fclose(fileMapName);
 	// Open map file
