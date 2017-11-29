@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <cgi.h>
 #include "MovementChecker.h"
+#include "DiamondFinder.h"
 #include "Save.h"
 
 //variable to read in AJAX value
@@ -66,7 +67,9 @@ int main(){
     }
 
     //check royal diamonds
-    if(game_Map.rdX == hero.x && game_Map.rdY == hero.y){
+    //Changed on 11-28 By James to add DiamondFinder functionality into the project
+    //if(game_Map.rdX == hero.x && game_Map.rdY == hero.y){
+    if(onDiamond(hero.x, hero.y, game_Map) == 1) {
         printf("<br>****************************<br>");
         printf("<br>YOU FOUND ROYAL DIAMOND! YOU WON! WE'LL BE GO BACK TO YOUR HELL HOLE :( <br><br>");
         printf("<br>****************************<br>");
