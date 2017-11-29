@@ -4,6 +4,9 @@ Frupal 1 (Medium Difficulty)
 5,10
 100
 1000
+Axe
+Shears
+Sledge
 #############################
 0,0,0,2,None
 0,1,0,2,None
@@ -85,7 +88,7 @@ Frupal 1 (Medium Difficulty)
 18,23,0,2,None
 18,22,0,4,None
 18,21,0,4,None
-18,8,0,0,Binoculars
+18,8,0,0,Binocular
 19,24,0,2,None
 19,23,0,2,None
 19,22,0,3,None
@@ -130,6 +133,7 @@ Frupal 1 (Medium Difficulty)
 23,0,0,0,Tree
 23,1,0,0,Tree
 23,2,0,0,Tree
+23,16,0,0,Boat
 24,23,0,2,None
 24,22,0,2,None
 24,21,0,2,None
