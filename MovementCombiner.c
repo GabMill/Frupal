@@ -71,7 +71,7 @@ int main(){
     //if(game_Map.rdX == hero.x && game_Map.rdY == hero.y){
     if(onDiamond(hero.x, hero.y, game_Map) == 1) {
         printf("<br>****************************<br>");
-        printf("<br>COngratulations! You've found the royal diamonds! Resetting map... <br><br>");
+        printf("<br>Congratulations! You've found the royal diamonds! Resetting map... <br><br>");
         printf("<br>****************************<br>");
 
         resetMap();
