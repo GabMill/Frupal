@@ -1,3 +1,9 @@
+/****************************************************
+  * Programmer: James Camarillo Ricks
+  * File: DiamondFinder.c
+  * Description: Check if the player has found "Royal Diamond" item
+  **************************************************/
+
 #include "DiamondFinder.h"
 
 /*
