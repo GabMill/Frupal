@@ -1,3 +1,9 @@
+/****************************************************
+  * Programmer: Leon Lee
+  * File: movement_checker.h
+  * Description: Calculate the coords / Check Terrain and respond / Check which item or obstacle and respond
+  **************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
