@@ -1,7 +1,13 @@
-//Author: Gabriel Miller
-//Description: Javascript for controlling dropdown menu and redirects
+/****************************************************
+  * Programmer: Gabriel Miller
+  * File: LandingPage.js
+  * Description: Javascript for controlling the dropdown menu on the landing
+  * page and redirecting to FrupalGame.html after passing map selection to
+  * MapSwitcher.cgi
+  **************************************************/
 
-//Show dropdown menu on click and toggle button text
+ //Dropdown functionality - shows/hides dropdown and changes button text
+ //accordingly 
 function dropdownClick()
 {
     if (!event.target.matches('#dropdownButton'))

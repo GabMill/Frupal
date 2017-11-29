@@ -1,6 +1,9 @@
-//Author: Gabriel Miller
-//Description: Takes query string from landing page and writes corresponding
-//file name to Map_Name.txt
+/****************************************************
+  * Programmer: Gabriel Miller
+  * File: MapSwitcher.c
+  * Description: Takes query string from landing page and writes corresponding
+  file name to Map_Name.txt
+  **************************************************/
 
 #include <stdio.h>
 #include <cgi.h>
