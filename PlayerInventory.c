@@ -1,3 +1,9 @@
+/****************************************************
+  * Programmer: Gabriel Miller, Leon Lee
+  * File: PlayerInventory.c
+  * Description: Print out player's inventory
+  **************************************************/
+
 #include <stdio.h>
 #include <cgi.h>
 #include <string.h>
