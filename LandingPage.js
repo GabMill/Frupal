@@ -24,3 +24,13 @@ function dropdownClick()
         playButton.value = "Play game"
     }
 }
+
+function redirect(arg)
+{
+    arguments = "map=" + arg + ".txt";
+    var xhttp = new XMLHttpRequest();
+    URL = "MapSwitcher.cgi?"+arguments;
+    xhttp.open("GET", URL, true);
+    xhttp.send();
+    window.location="FrupalGame.html";
+}

@@ -20,5 +20,9 @@ Purchase.cgi: Purchase.c Player.c Map.c
 	gcc Purchase.c Player.c Map.c Save.c
 	mv a.out Purchase.cgi
 
+
+MapSwitcher.cgi: MapSwitcher.c Player.c Map.c Save.c
+	gcc MapSwitcher.c Player.c Map.c Save.c -lcgi -o MapSwitcher.cgi
+
 clean:
 	rm *.cgi
