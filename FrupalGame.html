@@ -1,69 +1,19 @@
 <html>
-
-<style>
-
-img{
-    display: block;
-    margin: 0 auto;
-}
-
-#returnToMenu
-{
-    float: right;
-}
-
-.frupal_ui
-    {
-        width:1400;
-        height:720px;
-        position:absolute;
-        top:0;
-        bottom:0;
-        left:0;
-        right:0;
-        margin:auto;
-    }
-
-    .window
-    {
-        background-color:#ffe6e6;
-    }
-
-.game_window
-    {
-        width:720px;
-        height:520px;
-        margin:auto;
-    }
-
-.inventory
-    {
-        margin-top:0;
-        width:300px;
-        height:520px;
-    }
-
-.legend
-    {
-        margin-top:0;
-        width:300px;
-        height:520px;
-    }
-
-.stats
-    {
-        width:1337px;
-        height:400px;
-    }
-</style>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <script>
 
 $(document).keyup(function(event){
         keyEntry(event);
         });
+
+function returnToMenu()
+{
+    if (confirm("Selecting a new map will erase your progress! Continue?") == true)
+    {
+        window.location="LandingPage.html";
+    }
+}
+
 
 function keyEntry(event){
     var x = event.keyCode || event.which;
@@ -111,7 +61,7 @@ function PurchaseItem(){
     xhttp.send();
 
     document.getElementById("legend").innerHTML = xhttp.responseText;
-
+	
     xhttp.open("GET", "Display.cgi", false);
     xhttp.send();
 
@@ -125,12 +75,12 @@ function toggleInventory()
     if(inv.style.visibility == "hidden")
     {
         inv.style.visibility = "visible";
-        invTogg.value = "Hide inventory";
+        invTogg.value = "Inventory";
     }
 	else
 	{
 	    inv.style.visibility = "hidden";
-	    invTogg.value = "Show inventory";
+	    invTogg.value = "Inventory";
 	}
 }
 
@@ -147,43 +97,116 @@ function initMap(){
     document.getElementById("inventory").innerHTML = xhttp.responseText;
 }
 
-function returnToMenu()
-{
-    if (confirm("Selecting a new map will erase your progress! Continue?") == true)
-    {
-        window.location="LandingPage.html";
-    }
-    else
-    {
-        
-    }
-}
-
 </script>
 
 <head>
-<img src="kingdom_logo.png" height="200" width="500">
+<style>
+    body{
+        color:white;
+        font-family:helvetica;
+        }
+    div{
+        background-color:#BDBBB0;
+        }
+    p{
+        display:bold;
+    }
+    .window{
+        float:left;
+        margin:20px;
+        text-align:center;
+        overflow:hidden;
+        }
+    .button{
+        width:200px;
+        height:30px;
+        }
+    #logo{
+        margin:10px;
+        border:8px solid #8A897C;
+        background-color:white;
+        float:bottom;
+        width:175px;
+        height:75px;
+        }
+    #frupal_ui{
+        overflow:hidden;
+        width:1400;
+        height:720px;
+        }
+    #game_window{
+        float:left;
+        width:720;
+        height:720;
+        }
+    #inventory{
+        border:8px solid #8A897C;
+        font: 24;
+        font-weight:bold;
+        font-family:helvetica;
+        background-color:#D2D7Df;
+        text-align:left;
+        color:black;
+        height:100px;
+        width:220px;
+        }
+    #legendHolder{
+        width:250px;
+        height:720px;
+        }
+    #legend{
+        border:8px solid #8A897C;
+        font: 24;
+        font-weight:bold;
+        font-family:helvetica;
+        background-color:#D2D7Df;
+        text-align:left;
+        color:black;
+        width:220px;
+        }
+    #stats{
+        border:8px solid #8A897C;
+        font: 24;
+        font-weight:bold;
+        font-family:helvetica;
+        background-color:#D2D7Df;
+        text-align:left;
+        color:black;
+        height:100px;
+        width:220px;
+        }
+</style>
 </head>
 
-<body style="background-color:moccasin" onload="initMap()">
+<body style="background-color:#353535" onload="initMap()">
     <div id="frupal_ui">
-        <div>
-
-            <input type="submit" value="Purchase" onclick="PurchaseItem()">
-            <div class="window" id="legend"></div>
-            <div class="window" id="game_window"></div>
-            <input type="button" value="Hide inventory" id="invToggle" onclick="toggleInventory()">
-            <input type="button" value="Return to map selection" id="returnToMenu" onclick="returnToMenu()">
-            <div class="window" id="inventory"></div>
-                <br>
-                <br>Type in the direction you want to take in the text box!<br>
-                <br>w = North  |  s = South  |  a = West  |  d = East<br>
-
-                <br>
-                <br><br>
+        <div class="window" id="legendHolder">
+            <h1 style="margin-bottom:0;">LEGEND</h1>
+            <iframe src="LegendDisplay.html" style="width:250px;height:500px;"></iframe>
+            <img src="kingdom_logo.png" id="logo">
+        </div>
+        <div class="window" id="game_window"></div>
+        <div style="margin-bottom:0;" class="window">
+            <h1 style="margin-bottom:0;">INVENTORY</h1>
+            <div class="window" style="margin-bottom:0;margin-top:0;" id="inventory"></div>
+        </div>
+        <div style="margin-bottom:0;" class="window">
+            <h1 style="margin-bottom:0;">STATUS</h1> 
+            <div class="window" style="margin-bottom:0;margin-top:0;" id="legend">
+                <p>Welcome to Frupal!<br>
+                The objective of this game is to find the royal diamonds on the map.<br>
+                Beware! You don't want to run out of energy before that happens.</p>
+            </div>
+        </div>
+        <div style="margin-bottom:0;" class="window">
+            <h1 style="margin-bottom:0;">UPDATE</h1> 
             <div class="window" id="stats"></div>
         </div>
     </div>
+    <input style="width:100px;height:40px;" type="submit" class="button" value="Purchase" id="purchase" onclick="PurchaseItem()">
+    <input style="width:100px;height:40px;float:bottom;" type="button" class="button" value="Inventory" id="invToggle" onclick="toggleInventory()">
+
+    <input style="width:100px;height:40px;" type="button" value="Map Select" id="returnToMenu" onclick="returnToMenu()">
 </body>
 
 </html>
