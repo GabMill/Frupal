@@ -1,0 +1,17 @@
+Frupal Map 2 (Easy)
+10
+####################
+5,5
+100
+1000
+####################
+0,0,0,0,Royal Diamonds
+0,3,0,0,Boat
+0,3,0,2,None
+0,2,0,2,None
+0,5,0,4,Axe
+3,4,0,0,Tree
+5,4,0,0,Tree
+2,1,0,0,Power Bar
+0,7,0,0,Treasure Chest 1
+9,9,0,0,Treasure Chest 2
