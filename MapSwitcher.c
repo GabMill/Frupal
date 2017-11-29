@@ -1,3 +1,7 @@
+//Author: Gabriel Miller
+//Description: Takes query string from landing page and writes corresponding
+//file name to Map_Name.txt
+
 #include <stdio.h>
 #include <cgi.h>
 #include <string.h>
@@ -10,5 +14,7 @@ int main()
         strcpy(mapQuery, cgiGetValue(cgi, "map"));
         FILE * fileName = fopen("Map_Name.txt", "w");
         fputs(mapQuery, fileName);
+        fclose(fileName);
+        resetMap();
         return 0;
 }

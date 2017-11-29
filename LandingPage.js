@@ -1,3 +1,7 @@
+//Author: Gabriel Miller
+//Description: Javascript for controlling dropdown menu and redirects
+
+//Show dropdown menu on click and toggle button text
 function dropdownClick()
 {
     if (!event.target.matches('#dropdownButton'))
@@ -25,6 +29,8 @@ function dropdownClick()
     }
 }
 
+//Redirects page to FrupalGame.html after passing map selection to
+//MapSwitcher.cgi
 function redirect(arg)
 {
     arguments = "map=" + arg + ".txt";
