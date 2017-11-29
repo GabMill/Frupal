@@ -63,18 +63,22 @@ int updateMap(int size, int xC, int yC, struct map * mapCells)
 
 int resetMap()
 {
-	// hardcode mape file name
-	FILE * fileMap = fopen("map.txt","r");
+	int MAX = 31; 		// file line read length
+	int COUNT = 11;		// inventory size & smaller input length
+	char line[MAX];		// file read line - reads map name before player info
+	// Get map file name
+	FILE * fileMapName = fopen("Map_Name.txt");
+	fgets(line, MAX, fileMapName);	// grab map name
+	fclose(fileMapName);
+	// Open map file
+	FILE * fileMap = fopen(line,"r");
 	// check if file can be read
 	if(fileMap == NULL)
 	{
 		printf("Error opening map file.");
 		return 1;
 	}
-	int MAX = 31; 		// file line read length
-	int COUNT = 11;		// inventory size & smaller input length
-	char line[MAX];		// file read line
-	struct player her;
+	struct player hero;
 	// initialize hero.tool
 	for(int i = 0; i<COUNT; ++i)
 	{
