@@ -1,3 +1,9 @@
+/****************************************************
+  * Programmer: Blaine Holbert
+  * File: Map.h
+  * Description: Initializes, Saves, and Loads Map information which is held in map struct
+  **************************************************/
+
 #ifndef _MAP
 #define _MAP
 
