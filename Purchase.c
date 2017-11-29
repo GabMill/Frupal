@@ -180,7 +180,7 @@ int main(){
         printf("<br>Nothing to be purchased... Go look around more!<br>");
 
     //save the changed map file
-    updateMap(hero.max, hero.x, hero.y, 1, &game_Map);
+    updateMap(hero.max, hero.x, hero.y, &game_Map);
     //Save all the change
     save(hero);
 }
