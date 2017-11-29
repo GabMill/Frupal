@@ -1,3 +1,9 @@
+/****************************************************
+  * Programmer: Leon Lee
+  * File: Player.c
+  * Description: Saves and Loads Player information which is held in player struct
+  **************************************************/
+
 #include "Player.h"
 
 /**********************************
