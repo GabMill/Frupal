@@ -7,6 +7,11 @@ img{
     margin: 0 auto;
 }
 
+#returnToMenu
+{
+    float: right;
+}
+
 .frupal_ui
     {
         width:1400;
@@ -106,7 +111,7 @@ function PurchaseItem(){
     xhttp.send();
 
     document.getElementById("legend").innerHTML = xhttp.responseText;
-	
+
     xhttp.open("GET", "Display.cgi", false);
     xhttp.send();
 
@@ -142,6 +147,18 @@ function initMap(){
     document.getElementById("inventory").innerHTML = xhttp.responseText;
 }
 
+function returnToMenu()
+{
+    if (confirm("Selecting a new map will erase your progress! Continue?") == true)
+    {
+        window.location="LandingPage.html";
+    }
+    else
+    {
+        
+    }
+}
+
 </script>
 
 <head>
@@ -156,6 +173,7 @@ function initMap(){
             <div class="window" id="legend"></div>
             <div class="window" id="game_window"></div>
             <input type="button" value="Hide inventory" id="invToggle" onclick="toggleInventory()">
+            <input type="button" value="Return to map selection" id="returnToMenu" onclick="returnToMenu()">
             <div class="window" id="inventory"></div>
                 <br>
                 <br>Type in the direction you want to take in the text box!<br>
