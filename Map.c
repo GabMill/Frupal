@@ -1,3 +1,9 @@
+/****************************************************
+  * Programmer: Blaine Holbert
+  * File: Map.c
+  * Description: Initializes, Saves, and Loads Map information which is held in map struct
+  **************************************************/
+
 #include "Map.h"
 
 //creates a cell, constructor essentially, but because C doesn't have constructors, i need to define it outside of the struct
