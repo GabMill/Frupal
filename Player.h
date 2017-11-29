@@ -1,3 +1,9 @@
+/****************************************************
+  * Programmer: Leon Lee
+  * File: Player.h
+  * Description: Saves and Loads Player information which is held in player struct
+  **************************************************/
+
 #ifndef _PLAYER
 #define _PLAYER
 
