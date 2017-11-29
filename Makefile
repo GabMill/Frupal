@@ -1,4 +1,4 @@
-full: Move.cgi DisplayState.cgi Inventory.cgi Display.cgi Purchase.cgi
+full: Move.cgi DisplayState.cgi Inventory.cgi Display.cgi Purchase.cgi MapSwitcher.cgi
 
 Move.cgi: MovementChecker.c MovementCombiner.c Map.c Player.c DiamondFinder.c
 	gcc MovementChecker.c MovementCombiner.c Map.c Player.c Save.c DiamondFinder.c -lcgi
